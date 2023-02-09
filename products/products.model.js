@@ -42,9 +42,25 @@ function addNewProduct(id, description, price) {
     return newProduct
 }
 
+function addNewReview(id, rating, comment) {
+    const product = getProductById(id)
+
+    if (product) {
+        const review = {
+            rating,
+            comment,
+        }
+
+        product.reviews.push(review)
+    }
+    
+    return product
+}
+
 module.exports = {
     getAllProducts,
     getProductsByPrice,
     getProductById,
     addNewProduct,
+    addNewReview,
 }
