@@ -1,4 +1,4 @@
-const { getAllProducts, getProductsByPrice, getProductById } = require('./products.model')
+const { getAllProducts, getProductsByPrice, getProductById, addNewProduct } = require('./products.model')
 
 module.exports = {
     Query: {
@@ -11,5 +11,10 @@ module.exports = {
         product: (_, args) => {
             return getProductById(args.id)
         },
+    },
+    Mutation: {
+        newProduct: (_, args) => {
+            return addNewProduct(args.id, args.description, args.price)
+        }
     }
 }
